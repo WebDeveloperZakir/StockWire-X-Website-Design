@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockWire X - Insights at the Speed of Markets</title>
+    <!-- Favicon Placeholders -->
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/E77E22/ffffff?text=X">
+    <meta name="description" content="StockWire X: AI-powered investor news for ASX-listed companies across technology, biotech, healthcare, industrials, and financials. Get breaking news and market insights.">
+    <meta name="keywords" content="ASX news, investor news, StockWire X, AI-powered financial news, technology stocks, biotech stocks, healthcare stocks, industrials stocks, financials stocks, share market, stock market Australia">
+    <meta name="author" content="StockWire X">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.stockwirex.com/">
+    <meta property="og:title" content="StockWire X - Insights at the Speed of Markets">
+    <meta property="og:description" content="StockWire X: AI-powered investor news for ASX-listed companies across technology, biotech, healthcare, industrials, and financials. Get breaking news and market insights.">
+    <meta property="og:image" content="https://placehold.co/1200x630/051230/E77E22?text=StockWire+X">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.stockwirex.com/">
+    <meta property="twitter:title" content="StockWire X - Insights at the Speed of Markets">
+    <meta property="twitter:description" content="StockWire X: AI-powered investor news for ASX-listed companies across technology, biotech, healthcare, industrials, and financials. Get breaking news and market insights.">
+    <meta property="twitter:image" content="https://placehold.co/1200x675/051230/E77E22?text=StockWire+X">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for brand colors and fonts */
+        :root {
+            --color-primary-dark: #051230; /* Navy Blue */
+            --color-accent-orange: #E77E22; /* Vibrant Orange */
+            --color-accent-gold: #EDBF54; /* Gold */
+            --font-heading: 'Inter', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: #e0e0e0; /* Light gray for general text on dark background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700; /* Inter Bold */
+            color: #ffffff;
+        }
+
+        .text-stockwire-dark { color: var(--color-primary-dark); }
+        .bg-stockwire-dark { background-color: var(--color-primary-dark); }
+        .text-stockwire-orange { color: var(--color-accent-orange); }
+        .bg-stockwire-orange { background-color: var(--color-accent-orange); }
+        .border-stockwire-orange { border-color: var(--color-accent-orange); }
+        .text-stockwire-gold { color: var(--color-accent-gold); }
+        .bg-stockwire-gold { background-color: var(--color-accent-gold); }
+
+        .btn-primary {
+            @apply bg-stockwire-orange text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-colors duration-300;
+        }
+        .btn-secondary {
+            @apply border border-stockwire-orange text-stockwire-orange bg-transparent font-semibold py-3 px-6 rounded-lg hover:bg-stockwire-orange hover:text-white transition-colors duration-300;
+        }
+        /* Custom style for header membership button */
+        .btn-header-membership {
+            /* Changed to solid gold background with dark text */
+            @apply bg-stockwire-gold text-stockwire-dark px-4 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200;
+        }
+
+        /* Custom scroll behavior for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ticker strip animation */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-scroll-left {
+            animation: scroll-left 40s linear infinite; /* Adjust speed as needed */
+            min-width: 200%; /* Ensure content can scroll fully */
+        }
+    </style>
+</head>
+<body class="bg-stockwire-dark">
+    <!-- Navbar -->
+    <nav class="bg-stockwire-dark shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-white flex items-center">
+                <!-- Placeholder for StockWire X Logo -->
+                <img src="img/Logo.jpg" alt="StockWire X Logo" class="mr-2 rounded">
+                
+            </a>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#top-news" class="text-white hover:text-stockwire-gold transition-colors duration-200">Home</a>
+                 <a href="#about-us" class="text-white hover:text-stockwire-gold transition-colors duration-200">About</a>
+                <a href="#top-news" class="text-white hover:text-stockwire-gold transition-colors duration-200">News</a>
+                <a href="#categories" class="text-white hover:text-stockwire-gold transition-colors duration-200">Categories</a>
+                <a href="#media-highlights" class="text-white hover:text-stockwire-gold transition-colors duration-200">Media</a>
+               
+                <a href="#partner-zone" class="text-white hover:text-stockwire-gold transition-colors duration-200">Partners</a>
+                <a style="padding-right: 200px;" href="#contact-us" class="text-white hover:text-stockwire-gold transition-colors duration-200">Contact</a>
+                
+              <div class="membership">
+              <a href="#membership" style="background: #f39c12; color: #fff; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.3s;">
+              Membership
+              </a>
+              </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stockwire-dark pb-4">
+            <a href="#top-news" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">News</a>
+            <a href="#categories" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">Sectors</a>
+            <a href="#media-highlights" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">Media</a>
+            <a href="#about-us" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">About</a>
+            <a href="#partner-zone" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">Partners</a>
+            <a href="#contact-us" class="block text-white hover:text-stockwire-gold px-4 py-2 transition-colors duration-200">Contact</a>
+            <a href="#" class="block btn-header-membership mx-4 mt-2">See Membership Options</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-stockwire-dark to-gray-900 text-white py-20 md:py-32 overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('img/Hero2.jpg');"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">Insights at the Speed of Markets.</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 animate-fade-in-up delay-100">Breaking ASX news across Technology, Biotech, Healthcare, Industrials, and Financials.</p>
+
+                <div class="max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <input type="text" placeholder="Search Ticker or Company..." class="flex-grow w-full sm:w-auto p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-stockwire-orange">
+                    <button class="btn-primary w-full sm:w-auto">Search</button>
+                </div>
+
+                
+                <div class="membership">
+              <a href="#membership" style="background: #bf934c; color: #fff; padding: 10px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.3s;">
+              Get Free Alerts
+              </a>
+              </div>
+
+                <!-- Optional Ticker Strip -->
+                <div class="mt-12 overflow-hidden whitespace-nowrap">
+                    <div class="inline-block animate-scroll-left text-sm text-gray-400">
+                        <span class="mx-4">ASX200: <span class="text-green-400">+0.5%</span></span>
+                        <span class="mx-4">Commodities: <span class="text-red-400">-0.2%</span></span>
+                        <span class="mx-4">Tech Index: <span class="text-green-400">+1.2%</span></span>
+                        <span class="mx-4">Healthcare Index: <span class="text-red-400">-0.1%</span></span>
+                        <span class="mx-4">Energy Index: <span class="text-green-400">+0.8%</span></span>
+                        <span class="mx-4">Financials Index: <span class="text-green-400">+0.3%</span></span>
+                        <span class="mx-4">ASX200: <span class="text-green-400">+0.5%</span></span>
+                        <span class="mx-4">Commodities: <span class="text-red-400">-0.2%</span></span>
+                        <span class="mx-4">Tech Index: <span class="text-green-400">+1.2%</span></span>
+                        <span class="mx-4">Healthcare Index: <span class="text-red-400">-0.1%</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- About & Who We Are -->
+        <section style="background-image: url(img/Hero1.jpg);background-size: cover;opacity: .7;" id="about-us" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">About StockWire X</h2>
+                <p style="font-size: 26px;" class="text-lg text-gray-300 mb-6">
+                    StockWire X is an independent, AI-powered financial media outlet. We specialize in creating investor content at speed and scale, giving ASX companies greater exposure. Our mission: to level the playing field for investors in the non-resource sector by transforming complex ASX news into clear, insightful, and accessible analysis, so every decision is a step ahead.
+                </p>
+                <br>
+                <p style="color: white;" class="text-md text-gray-400 mb-8">
+                    Editorial transparency: All news and content on StockWire X originates directly from official ASX announcements, distributed via our advanced AI-powered newsroom to ensure accuracy and timeliness.
+                </p>
+                <!-- Google Cloud Partnership Badge/Logo -->
+                <div class="mt-10">
+                    <img src="img/Google Cloud.jpg" alt="Google Cloud Partnership" class="mx-auto h-12">
+                </div>
+            </div>
+        </section>
+
+        <!-- Top News Section -->
+        <section id="top-news" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Latest ASX Announcements</h2>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">All Sectors</button>
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">Tech</button>
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">Biotech</button>
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">Industrials</button>
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">Financials</button>
+                    <button class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-stockwire-orange transition-colors duration-200">Healthcare</button>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-full text-xs">#QuarterlyResults</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-full text-xs">#M&A</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-full text-xs">#CapitalRaises</span>
+                    <span class="bg-gray-800 text-gray-400 px-3 py-1 rounded-full text-xs">#Dividends</span>
+                </div>
+
+                <!-- News Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- News Card 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Tech Innovator Reports Record Growth in Q2.png" alt="Tech News Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Tech Innovator Reports Record Growth in Q2</h3>
+                            <p class="text-gray-400 text-sm mb-4">ASX Tech | 5 min ago</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Biotech Firm Announces Successful Clinical Trial Results.png" alt="Biotech News Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Biotech Firm Announces Successful Clinical Trial Results</h3>
+                            <p class="text-gray-400 text-sm mb-4">ASX Biotech | 20 min ago</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Major Bank Foresees Stronger Economic Outlook.png" alt="Financials News Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Major Bank Foresees Stronger Economic Outlook</h3>
+                            <p class="text-gray-400 text-sm mb-4">ASX Financials | 1 hour ago</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 4 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Industrial-growth.png" alt="Industrials News Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Industrial Leader Expands Manufacturing Capacity</h3>
+                            <p class="text-gray-400 text-sm mb-4">ASX Industrials | 2 hours ago</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 5 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Healthcare Provider Reports Strong Patient Growth.png" alt="Healthcare News Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Healthcare Provider Reports Strong Patient Growth</h3>
+                            <p class="text-gray-400 text-sm mb-4">ASX Healthcare | 3 hours ago</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- News Card 6 (Bonus: Trending Article) -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                        <img src="img/Investor Hot Topic.png" alt="Trending Article Image" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-stockwire-gold transition-colors duration-300">Investor Hot Topic: The Future of Renewable Energy in ASX</h3>
+                            <p class="text-gray-400 text-sm mb-4">Trending on StockWire X | Yesterday</p>
+                            <a href="#" class="text-stockwire-orange hover:underline text-sm font-semibold">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Sections (SEO Boost) -->
+        <section id="categories" class="py-16 md:py-24 bg-stockwire-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Deep Dive into Key Sectors</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Tech Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Technology News Icon.png" alt="Technology Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Technology News</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">ASX Tech firm launches innovative AI solution</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Cybersecurity sector sees strong investment growth</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Emerging tech trends impacting ASX valuations</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Tech News</a>
+                    </div>
+                    <!-- Biotech Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Biotech Announcements icon.png" alt="Biotech Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Biotech Announcements</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">New drug discovery gets fast-track approval</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Biotech IPOs on the rise in Australia</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Genomics company secures major research grant</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Biotech News</a>
+                    </div>
+                    <!-- Healthcare Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Healthcare Insights icon.png" alt="Healthcare Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Healthcare Insights</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Hospital group reports expansion plans</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Telehealth services continue strong adoption</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Medical device innovations driving sector growth</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Healthcare News</a>
+                    </div>
+                    <!-- Industrials Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Industrials Market Updates icon.png" alt="Industrials Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Industrials Market Updates</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Manufacturing sector shows resilience</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Infrastructure projects boost industrial stocks</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Supply chain optimization benefits key players</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Industrials News</a>
+                    </div>
+                    <!-- Financials Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Financials Sector Reports icon.png" alt="Financials Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Financials Sector Reports</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Retail banking trends and outlook</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Investment firm expands global footprint</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Fintech disruption impacting traditional finance</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Financials News</a>
+                    </div>
+                    <!-- Mining & Resources Block -->
+                    <div class="bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition-all duration-300 text-center">
+                        <img src="img/Mining Resources icon.png" alt="Mining and Resources Icon" class="mx-auto mb-4 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-4 text-stockwire-gold">Mining & Resources</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">New gold discovery boosts junior miner stock</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Iron ore prices stabilize amid global demand</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-stockwire-orange transition-colors duration-200">Sustainable mining practices gaining traction</a></li>
+                        </ul>
+                        <a href="#" class="btn-secondary w-full text-center">See All Resources News</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video / Media Highlights -->
+        <section id="media-highlights" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Video & Media Highlights</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Video Card 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <div class="relative w-full aspect-video">
+                            <!-- Placeholder for YouTube/TikTok embed -->
+                            <img src="img/v1.png" alt="Daily Market Wrap Video" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <a href="#" class="text-white text-5xl hover:text-stockwire-gold transition-colors duration-200">&#9658;</a> <!-- Play icon -->
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white">Daily Market Wrap: ASX Closes Strong</h3>
+                            <p class="text-gray-400 text-sm">Yesterday | YouTube</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <div class="relative w-full aspect-video">
+                            <img src="img/v2.png" alt="Top 3 Announcements Video" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <a href="#" class="text-white text-5xl hover:text-stockwire-gold transition-colors duration-200">&#9658;</a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white">Top 3 ASX Announcements You Missed Today</h3>
+                            <p class="text-gray-400 text-sm">Today | TikTok Shorts</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <div class="relative w-full aspect-video">
+                            <img src="img/v3.png" alt="Industry Interview Video" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <a href="#" class="text-white text-5xl hover:text-stockwire-gold transition-colors duration-200">&#9658;</a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white">Expert Interview: The Future of Biotech Investment</h3>
+                            <p class="text-gray-400 text-sm">2 days ago | LinkedIn Live</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section (Social Proof) -->
+        <section class="py-16 md:py-24 bg-stockwire-dark">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12">Trusted by ASX-listed companies & 250,000+ monthly readers.</h2>
+                
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
+                    <!-- Placeholder Logos for Clients/Advertisers -->
+                    <img src="https://placehold.co/120x60/4A5568/ffffff?text=Client+A" alt="Client Logo A" class="h-12 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/120x60/4A5568/ffffff?text=Client+B" alt="Client Logo B" class="h-12 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/120x60/4A5568/ffffff?text=Client+C" alt="Client Logo C" class="h-12 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/120x60/4A5568/ffffff?text=Client+D" alt="Client Logo D" class="h-12 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/120x60/4A5568/ffffff?text=Client+E" alt="Client Logo E" class="h-12 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-3xl mx-auto">
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                        <p class="text-stockwire-orange text-4xl font-bold mb-2">250K+</p>
+                        <p class="text-gray-300 text-lg">Monthly Readers</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                        <p class="text-stockwire-gold text-4xl font-bold mb-2">100K+</p>
+                        <p class="text-gray-300 text-lg">Email Subscribers</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                        <p class="text-stockwire-orange text-4xl font-bold mb-2">50K+</p>
+                        <p class="text-gray-300 text-lg">Social Reach</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Email Capture & Engagement -->
+        <section id="email-capture" class="py-16 md:py-24 bg-stockwire-orange text-white">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <img src="https://placehold.co/80x80/051230/E77E22?text=ALERT" alt="Email Alert Icon" class="mx-auto mb-6 rounded-full">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Get Breaking ASX Alerts Direct to Your Inbox.</h2>
+                <p class="text-lg text-white mb-8">Join 250,000+ monthly readers who trust StockWire X for timely market insights.</p>
+                <form id="alert-signup-form" class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your Email Address" class="flex-grow p-3 rounded-lg bg-white bg-opacity-20 border border-white focus:outline-none focus:ring-2 focus:ring-white placeholder-white::placeholder text-white" required>
+                    <button type="submit" class="bg-stockwire-dark text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-800 transition-colors duration-300">Receive Alerts</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Partner Zone -->
+        <section id="partner-zone" class="py-16 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Work With Us.</h2>
+                <p class="text-lg text-gray-300 mb-8">Connect with one of Australia’s largest ASX investor audiences.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="btn-primary">Advertise With Us</a>
+                    <a href="#" class="btn-secondary">Discuss Opportunities</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us" class="py-16 md:py-24 bg-stockwire-dark">
+            <div class="container mx-auto px-4 text-center max-w-xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Get In Touch</h2>
+                <p class="text-lg text-gray-300 mb-8">Have questions, feedback, or partnership inquiries? Fill out the form below.</p>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-stockwire-orange" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-stockwire-orange" required>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-stockwire-orange">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message" rows="6" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-stockwire-orange" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stockwire-dark py-12 md:py-16 text-gray-400">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div>
+                <a href="#" class="text-xl font-bold text-white flex items-center mb-4">
+                    <img src="img/Logo.jpg" alt="StockWire X Logo" class="mr-2 rounded">
+                    
+                </a>
+                <p class="text-sm">Insights at the Speed of Markets.</p>
+                <div class="flex space-x-4 mt-4">
+                    <!-- Social Media Links (placeholders) -->
+                    <a href="#" class="text-gray-400 hover:text-stockwire-orange transition-colors duration-200" aria-label="LinkedIn"><img src="https://placehold.co/24x24/EDBF54/051230?text=IN" alt="LinkedIn" class="h-6 w-6 rounded"></a>
+                    <a href="#" class="text-gray-400 hover:text-stockwire-orange transition-colors duration-200" aria-label="X (Twitter)"><img src="https://placehold.co/24x24/EDBF54/051230?text=X" alt="X (Twitter)" class="h-6 w-6 rounded"></a>
+                    <a href="#" class="text-gray-400 hover:text-stockwire-orange transition-colors duration-200" aria-label="Facebook"><img src="https://placehold.co/24x24/EDBF54/051230?text=FB" alt="Facebook" class="h-6 w-6 rounded"></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#about-us" class="hover:text-stockwire-orange transition-colors duration-200">About Us</a></li>
+                    <li><a href="#contact-us" class="hover:text-stockwire-orange transition-colors duration-200">Contact</a></li>
+                    <li><a href="#partner-zone" class="hover:text-stockwire-orange transition-colors duration-200">Advertise</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <!-- SEO Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Explore</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">ASX Tech News</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">ASX Biotech Announcements</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Investor Relations Advertising</a></li>
+                    <li><a href="#" class="hover:text-stockwire-orange transition-colors duration-200">Latest Financials Reports</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-8 text-center text-sm">
+            <p>&copy; 2025 StockWire X. All Rights Reserved Developedby Zakir Hossain</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle and smooth scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const alertSignupForm = document.getElementById('alert-signup-form');
+            const contactForm = document.getElementById('contact-form');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Close mobile menu when a link is clicked
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Handle email signup form submission (placeholder for actual integration)
+            if (alertSignupForm) {
+                alertSignupForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); // Prevent default form submission
+                    alert('Thank you for joining StockWire X alerts! Check your inbox for a confirmation.');
+                    alertSignupForm.reset(); // Clear the form
+                    // In a real application, you would send this data to a server.
+                });
+            }
+
+            // Handle contact form submission (placeholder for actual integration)
+            if (contactForm) {
+                contactForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); // Prevent default form submission
+                    alert('Thank Adssdsdsadassasdsdssdsadsadasdasyou for your message! We will get back to you shortly.');
+                    contactForm.reset(); // Clear the form
+                    // In a real application, you would send this data to a server.
+                });
+            }
+        });
+    </script>
+</body>
+</html>
